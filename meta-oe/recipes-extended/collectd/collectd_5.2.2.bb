@@ -32,6 +32,7 @@ PACKAGECONFIG[sensors] = "--enable-sensors --with-libsensors=yes, \
         --disable-sensors --with-libsensors=no,lmsensors"
 PACKAGECONFIG[amqp] = "--enable-amqp --with-librabbitmq=yes, \
         --disable-amqp --with-librabbitmq=no,rabbitmq-c"
+PACKAGECONFIG[pinba] = "--enable-pinba,--disable-pinba,protobuf protobuf-native"
 
 EXTRA_OECONF = " \
                 ${FPLAYOUT} \
