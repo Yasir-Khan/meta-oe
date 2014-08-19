@@ -60,6 +60,13 @@ do_install () {
            ${D}${bindir}/lmbench-run
     install -m 0755 ${S}/scripts/lmbench ${D}${bindir}
     install -m 0755 ${S}/scripts/* ${D}${datadir}/lmbench/scripts
+
+    # If the machine installs a config file, install it to the appropriate place
+    if [ -f ${WORKDIR}/CONFIG.${MACHINE} ]; then
+        install -D 0644 ${WORKDIR}/CONFIG.${MACHINE} \
+                        ${D}/${datadir}/lmbench/bin/${TARGET_PREFIX}/CONFIG.${MACHINE}
+    fi
+
 }
 
 pkg_postinst_${PN} () {
